@@ -2,16 +2,108 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой сайт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог по криптографии — Шифр Цезаря</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        // 19 января 2026
-        const now = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-        document.write(now.toLocaleDateString('ru-RU', options));
-    </script>
+    <!-- Текущая дата сразу под <body> -->
+    <div class="date" id="current-date"></div>
 
-    <!-- остальной контент сайта -->
+    <h1>Решение задач по шифру Цезаря</h1>
+
+    <h2>1. Определение ключей шифра Цезаря</h2>
+    <p><strong>а. АПЕЛЬСИН → САЦЬНВЩЮ</strong></p>
+    <p>Ключ: <code>k = 17</code></p>
+    <p>Проверка: каждая буква сдвинута на 17 позиций в алфавите из 32 букв (без «Ё»).</p>
+
+    <p><strong>б. АБРИКОС → ЫЬЛГЕЙМ</strong></p>
+    <p>Ключ: <code>k = 27</code></p>
+
+    <h2>2. Расшифровка сообщений</h2>
+    <p><strong>а. ФХНЗКЧ</strong></p>
+    <p>Расшифровка: <code>ПРИВЕТ</code> (ключ <code>k = 5</code>)</p>
+
+    <p><strong>б. ЦЩЕБФ</strong></p>
+    <p>Расшифровка: <code>ВЕСНА</code> (ключ <code>k = 20</code>)</p>
+
+    <h2>3. Шифрование фамилии</h2>
+    <p>Фамилия: <code>Лосев</code></p>
+    <p>Ключ: <code>k = 10</code></p>
+    <p>Зашифрованный результат: <code>ХШЫПМ</code></p>
+
+    <h2>4. Исходный код (JavaScript)</h2>
+    <p>Для справки — логика шифрования и дешифрования:</p>
+    <pre>
+// Алфавит без "Ё" — 32 буквы
+const ALPHABET = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+
+function caesarEncrypt(text, k) {
+    return text
+        .toUpperCase()
+        .split('')
+        .map(char => {
+            const idx = ALPHABET.indexOf(char);
+            if (idx === -1) return char;
+            return ALPHABET[(idx + k) % 32];
+        })
+        .join('');
+}
+
+function caesarDecrypt(text, k) {
+    return text
+        .toUpperCase()
+        .split('')
+        .map(char => {
+            const idx = ALPHABET.indexOf(char);
+            if (idx === -1) return char;
+            return ALPHABET[(idx - k + 32) % 32];
+        })
+        .join('');
+}
+
+// Примеры:
+console.log(caesarEncrypt('ЛОСЕВ', 10)); // "ХШЫПМ"
+console.log(caesarDecrypt('ФХНЗКЧ', 5)); // "ПРИВЕТ"
+console.log(caesarDecrypt('ЦЩЕБФ', 20)); // "ВЕСНА"
+    </pre>
+
+    <script>
+        // Вставляем текущую дату
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            timeZone: 'Europe/Moscow' 
+        };
+        document.getElementById('current-date').textContent = 
+            now.toLocaleDateString('ru-RU', options);
+    </script>
 </body>
 </html>
