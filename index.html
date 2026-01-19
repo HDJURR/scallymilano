@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Моя презентация</title>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
 </head>
 <body>
+    <script>
+        // 19 января 2026
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        document.write(now.toLocaleDateString('ru-RU', options));
+    </script>
 
-<p>
-    Нажмите, чтобы скачать или открыть презентацию:
-    <a href="СетьВводный.pptx">Презентация в формате .pptx</a>
-    Нажмите, чтобы скачать или открыть index.html:
-    <a href="index.html">Файл проверки работы с кириллицей .html</a>
-</p>
-
+    <!-- остальной контент сайта -->
 </body>
 </html>
