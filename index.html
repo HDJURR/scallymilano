@@ -117,3 +117,127 @@ console.log(caesarDecrypt('ЦЩЕБФ', 20)); // "ВЕСНА"
 Ошибка на тесте (MSE): 0.02770698715228561</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>База данных стоматологии</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    h2 {
+      color: #3498db;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🦷 База данных стоматологии</h1>
+
+    <!-- Врачи -->
+    <section>
+      <h2>👨‍⚕️ Врачи</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ФИО</th>
+            <th>Стаж</th>
+            <th>Категория</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5267</td>
+            <td>Иванов Михаил</td>
+            <td>10 лет</td>
+            <td>высшая</td>
+          </tr>
+          <!-- Можно добавить другие, если нужно -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Медсёстры -->
+    <section>
+      <h2>👩‍⚕️ Медсёстры</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>ФИО</th>
+            <th>Стаж</th>
+            <th>Тип занятости</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4567</td>
+            <td>Иванова Анна</td>
+            <td>5 лет</td>
+            <td>постоянный</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Операции -->
+    <section>
+      <h2>🔧 Операции</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Пациент</th>
+            <th>Дата</th>
+            <th>Длительность</th>
+            <th>Стоимость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7632</td>
+            <td>Алена</td>
+            <td>05.12.30</td>
+            <td>30 мин</td>
+            <td>5000 руб.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer style="text-align:center; margin-top:40px; color:#777;">
+      <p>Схема создана в draw.io • Деплой на GitHub Pages</p>
+    </footer>
+  </div>
+</body>
+</html>
